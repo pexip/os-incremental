@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+cd $AUTOPKGTEST_TMP
+trial3 incremental

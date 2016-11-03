@@ -1,0 +1,48 @@
+From: Free Ekanayaka <freee@debian.org>
+Date: Mon, 31 Oct 2016 10:31:46 +0000
+Subject: broken-flushWarnings
+
+Fix spurious unit tests failures due to broken behavior in
+SynchronousTestCase.flushWarnings, which ends up skipping
+warnings. See this code around 1160:
+
+aModule = sys.modules[aFunction.__module__]
+filename = inspect.getabsfile(aModule)
+
+if filename != os.path.normcase(aWarning.filename):
+    continue
+---
+ src/incremental/tests/test_version.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/incremental/tests/test_version.py b/src/incremental/tests/test_version.py
+index 75129af..0ccd8e9 100644
+--- a/src/incremental/tests/test_version.py
++++ b/src/incremental/tests/test_version.py
+@@ -9,6 +9,7 @@ from __future__ import division, absolute_import
+ 
+ import sys
+ import operator
++import unittest
+ 
+ from tempfile import mkdtemp
+ 
+@@ -148,7 +149,7 @@ class VersionsTests(TestCase):
+         Passing 'prerelease' to Version is deprecated.
+         """
+         Version("whatever", 1, 0, 0, prerelease=1)
+-        warnings = self.flushWarnings([self.test_prereleaseDeprecated])
++        warnings = self.flushWarnings()
+         self.assertEqual(len(warnings), 1)
+         self.assertEqual(
+             warnings[0]['message'],
+@@ -161,8 +162,7 @@ class VersionsTests(TestCase):
+         """
+         va = Version("whatever", 1, 0, 0, release_candidate=1)
+         va.prerelease
+-        warnings = self.flushWarnings(
+-            [self.test_prereleaseAttributeDeprecated])
++        warnings = self.flushWarnings()
+         self.assertEqual(len(warnings), 1)
+         self.assertEqual(
+             warnings[0]['message'],

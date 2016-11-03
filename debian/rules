@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=incremental
+
+# XXX Unit tests seem to leave cruft around, for some reason
+export PYBUILD_AFTER_TEST=rm -rf {build_dir}/incremental.tests.*
+
+# XXX Needed by Python click, since builders don't have utf-8
+# set by default. See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842748
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
