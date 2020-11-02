@@ -1,3 +1,45 @@
+incremental (17.5.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https protocol in Format field
+  * d/watch: Use https protocol
+  * Use debhelper-compat instead of debian/compat.
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Tristan Seligmann ]
+  * Merge duplicate gbp.conf sections.
+  * New upstream release.
+  * debian/copyright: use spaces rather than tabs to start continuation lines.
+  * Bump debhelper from deprecated 9 to 13.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Set Rules-Requires-Root: no.
+  * Bump Standards-Version to 4.5.0 (no changes).
+  * Tweak package synopsis.
+  * Update Homepage.
+
+ -- Tristan Seligmann <mithrandi@debian.org>  Mon, 02 Nov 2020 09:33:03 +0200
+
+incremental (16.10.1-3.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Drop python2 support; Closes: #936731
+
+ -- Sandro Tosi <morph@debian.org>  Wed, 01 Apr 2020 20:51:18 -0400
+
+incremental (16.10.1-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Remove build-depends and reccomends on python-click (Closes: 947467)
+  * Disable python 2 autopkgtests and remove associated test dependencies.
+  * Disable testsuite for python 2 (keep it enabled for python 3)
+  * Add note to package description about incremental.update functionality
+    and python-click.
+
+ -- Peter Michael Green <plugwash@debian.org>  Fri, 27 Dec 2019 12:48:06 +0000
+
 incremental (16.10.1-3) unstable; urgency=medium
 
   * Recommend python Twisted and Click, in order to use incremental.update

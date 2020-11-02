@@ -1,59 +1,59 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: incremental
 Upstream-Contact: Amber Brown <hawkowl@twistedmatrix.com>
 Source: https://github.com/hawkowl/incremental
 
 Files: *
 Copyright: (c) 2001-2015
-	Allen Short
-	Amber Hawkie Brown
-	Andrew Bennetts
-	Andy Gayton
-	Antoine Pitrou
-	Apple Computer, Inc.
-	Ashwini Oruganti
-	Benjamin Bruheim
-	Bob Ippolito
-	Canonical Limited
-	Christopher Armstrong
-	David Reid
-	Divmod Inc.
-	Donovan Preston
-	Eric Mangold
-	Eyal Lotem
-	Google Inc.
-	Hybrid Logic Ltd.
-	Hynek Schlawack
-	Itamar Turner-Trauring
-	James Knight
-	Jason A. Mobarak
-	Jean-Paul Calderone
-	Jessica McKellar
-	Jonathan D. Simms
-	Jonathan Jacobs
-	Jonathan Lange
-	Julian Berman
-	Jürgen Hermann
-	Kevin Horn
-	Kevin Turner
-	Laurens Van Houtven
-	Mary Gardiner
-	Massachusetts Institute of Technology
-	Matthew Lefkowitz
-	Moshe Zadka
-	Paul Swartz
-	Pavel Pergamenshchik
-	Rackspace, US Inc.
-	Ralph Meijer
-	Richard Wall
-	Sean Riley
-	Software Freedom Conservancy
-	Tavendo GmbH
-	Thijs Triemstra
-	Thomas Herve
-	Timothy Allen
-	Tom Prince
-	Travis B. Hartwell
+ 	Allen Short
+ 	Amber Hawkie Brown
+ 	Andrew Bennetts
+ 	Andy Gayton
+ 	Antoine Pitrou
+ 	Apple Computer, Inc.
+ 	Ashwini Oruganti
+ 	Benjamin Bruheim
+ 	Bob Ippolito
+ 	Canonical Limited
+ 	Christopher Armstrong
+ 	David Reid
+ 	Divmod Inc.
+ 	Donovan Preston
+ 	Eric Mangold
+ 	Eyal Lotem
+ 	Google Inc.
+ 	Hybrid Logic Ltd.
+ 	Hynek Schlawack
+ 	Itamar Turner-Trauring
+ 	James Knight
+ 	Jason A. Mobarak
+ 	Jean-Paul Calderone
+ 	Jessica McKellar
+ 	Jonathan D. Simms
+ 	Jonathan Jacobs
+ 	Jonathan Lange
+ 	Julian Berman
+ 	Jürgen Hermann
+ 	Kevin Horn
+ 	Kevin Turner
+ 	Laurens Van Houtven
+ 	Mary Gardiner
+ 	Massachusetts Institute of Technology
+ 	Matthew Lefkowitz
+ 	Moshe Zadka
+ 	Paul Swartz
+ 	Pavel Pergamenshchik
+ 	Rackspace, US Inc.
+ 	Ralph Meijer
+ 	Richard Wall
+ 	Sean Riley
+ 	Software Freedom Conservancy
+ 	Tavendo GmbH
+ 	Thijs Triemstra
+ 	Thomas Herve
+ 	Timothy Allen
+ 	Tom Prince
+ 	Travis B. Hartwell
 License: MIT
 
 Files: debian/*
