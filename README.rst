@@ -7,7 +7,7 @@ Incremental
 
 Incremental is a small library that versions your Python projects.
 
-API documentation can be found `here <https://hawkowl.github.io/incremental/docs/>`_.
+API documentation can be found `here <https://twisted.github.io/incremental/docs/>`_.
 
 
 Quick Start
@@ -25,7 +25,8 @@ Add this to your ``setup.py``\ 's ``setup()`` call, removing any other versionin
    }
 
 
-Then run ``python -m incremental.update <projectname> --create`` (you will need ``click`` installed from PyPI).
+Install Incremental to your local environment with ``pip install incremental[scripts]``.
+Then run ``python -m incremental.update <projectname> --create``.
 It will create a file in your package named ``_version.py`` and look like this:
 
 .. code::
@@ -55,12 +56,10 @@ It is made up of the following elements (which are given during instantiation):
 - ``package`` (required), the name of the package this ``Version`` represents.
 - ``major``, ``minor``, ``micro`` (all required), the X.Y.Z of your project's ``Version``.
 - ``release_candidate`` (optional), set to 0 or higher to mark this ``Version`` being of a release candidate (also sometimes called a "prerelease").
+- ``post`` (optional), set to 0 or higher to mark this ``Version`` as a postrelease.
 - ``dev`` (optional), set to 0 or higher to mark this ``Version`` as a development release.
 
-You can extract a PEP-440 compatible version string by using the following methods:
-
-- ``.local()``, which returns a ``str`` containing the full version plus any Git or SVN information, if available. An example output would be ``"17.1.1rc1+r123"`` or ``"3.7.0+rb2e812003b5d5fcf08efd1dffed6afa98d44ac8c"``.
-- ``.public()``, which returns a ``str`` containing the full version, without any Git or SVN information. This is the version you should provide to users, or publicly use. An example output would be ``"13.2.0"``, ``"17.1.2dev1"``, or ``"18.8.0rc2"``.
+You can extract a PEP-440 compatible version string by using the ``.public()`` method, which returns a ``str`` containing the full version. This is the version you should provide to users, or publicly use. An example output would be ``"13.2.0"``, ``"17.1.2dev1"``, or ``"18.8.0rc2"``.
 
 Calling ``repr()`` with a ``Version`` will give a Python-source-code representation of it, and calling ``str()`` with a ``Version`` will provide a string similar to ``'[Incremental, version 16.10.1]'``.
 
@@ -79,6 +78,7 @@ The commands that can be given after that will determine what the next version i
 - ``--rc``, to set the project version to ``<year-2000>.<month>.0rc1`` if the current version is not a release candidate, or bump the release candidate number by 1 if it is.
 - ``--dev``, to set the project development release number to 0 if it is not a development release, or bump the development release number by 1 if it is.
 - ``--patch``, to increment the patch number of the release. This will also reset the release candidate number, pass ``--rc`` at the same time to increment the patch number and make it a release candidate.
+- ``--post``, to set the project postrelease number to 0 if it is not a postrelease, or bump the postrelease number by 1 if it is. This will also reset the release candidate and development release numbers.
 
 If you give no arguments, it will strip the release candidate number, making it a "full release".
 
@@ -98,11 +98,11 @@ Once the final version is made, it will become:
 - ``<projectname> 17.1.0``
 
 
-.. |coverage| image:: https://codecov.io/github/hawkowl/incremental/coverage.svg?branch=master
-.. _coverage: https://codecov.io/github/hawkowl/incremental
+.. |coverage| image:: https://codecov.io/github/twisted/incremental/coverage.svg?branch=master
+.. _coverage: https://codecov.io/github/twisted/incremental
 
-.. |travis| image:: https://travis-ci.org/hawkowl/incremental.svg?branch=master
-.. _travis: http://travis-ci.org/hawkowl/incremental
+.. |travis| image:: https://travis-ci.org/twisted/incremental.svg?branch=master
+.. _travis: https://travis-ci.org/twisted/incremental
 
 .. |pypi| image:: http://img.shields.io/pypi/v/incremental.svg
 .. _pypi: https://pypi.python.org/pypi/incremental
