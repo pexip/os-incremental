@@ -1,3 +1,69 @@
+Incremental 24.7.2 (2024-07-29)
+===============================
+
+Bugfixes
+--------
+
+- Incremental could mis-identify that a project had opted in to version management.
+
+  If a ``pyproject.toml`` in the current directory contained a ``[project]`` table with a ``name`` key, but did not contain the opt-in ``[tool.incremental]`` table, Incremental would still treat the file as if the opt-in were present and attempt to validate the configuration. This could happen in contexts outside of packaging, such as when creating a virtualenv. When operating as a setuptools plugin Incremental now always ignores invalid configuration, such as configuration that doesn't match the content of the working directory. (`#106 <https://github.com/twisted/incremental/issues/106>`__)
+
+
+Incremental 24.7.1 (2024-07-27)
+===============================
+
+Bugfixes
+--------
+
+- Incremental 24.7.0 would produce an error when parsing the ``pyproject.toml`` of a project that lacked the ``use_incremental=True`` or ``[tool.incremental]`` opt-in markers if that file lacked a ``[project]`` section containing the package name. This could cause a project that only uses ``pyproject.toml`` to configure tools to fail to build if Incremental is installed. Incremental now ignores such projects. (`#100 <https://github.com/twisted/incremental/issues/100>`__)
+
+
+Misc
+----
+
+- `#101 <https://github.com/twisted/incremental/issues/101>`__
+
+
+Incremental 24.7.0 (2024-07-25)
+===============================
+
+Features
+--------
+
+- Incremental can now be configured using ``pyproject.toml``. (`#90 <https://github.com/twisted/incremental/issues/90>`__)
+- Incremental now provides a read-only `Hatchling version source plugin <https://hatch.pypa.io/latest/plugins/version-source/reference/>`_. (`#93 <https://github.com/twisted/incremental/issues/93>`__)
+
+
+Bugfixes
+--------
+
+- Incremental no longer inserts a dot before the rc version component (i.e., ``1.2.3rc1`` instead of ``1.2.3.rc1``), resulting in version numbers in the `canonical format <https://packaging.python.org/en/latest/specifications/version-specifiers/#public-version-identifiers>`__. (`#81 <https://github.com/twisted/incremental/issues/81>`__)
+- Incremental's tests are now included in the sdist release artifact. (`#80 <https://github.com/twisted/incremental/issues/80>`__)
+
+
+Deprecations and Removals
+-------------------------
+
+- ``incremental[scripts]`` no longer depends on Twisted. (`#88 <https://github.com/twisted/incremental/issues/88>`__)
+- Support for Python 2.7 has been dropped for lack of test infrastructure. We no longer provide universal wheels. (`#86 <https://github.com/twisted/incremental/issues/86>`__)
+- Support for Python 3.5, 3.6, and 3.7 has been dropped for lack of test infrastructure. (`#92 <https://github.com/twisted/incremental/issues/92>`__)
+
+
+Incremental 22.10.0 (2022-10-15)
+================================
+
+No significant changes.
+
+
+Incremental 22.10.0.rc1 (2022-10-04)
+====================================
+
+Features
+--------
+
+- Incremental now supports type-checking with Mypy (#69)
+
+
 Incremental 21.3.0 (2021-03-01)
 ===============================
 

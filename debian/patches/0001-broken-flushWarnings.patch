@@ -16,18 +16,18 @@ if filename != os.path.normcase(aWarning.filename):
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/src/incremental/tests/test_version.py b/src/incremental/tests/test_version.py
-index 72223f0..2524d25 100644
+index b9bd2a4..2d58725 100644
 --- a/src/incremental/tests/test_version.py
 +++ b/src/incremental/tests/test_version.py
-@@ -8,6 +8,7 @@ Tests for L{incremental}.
- from __future__ import division, absolute_import
- 
+@@ -10,6 +10,7 @@ from __future__ import division, absolute_import
+ import sys
+ import unittest
  import operator
 +import unittest
  
  from incremental import getVersionString, IncomparableVersions
  from incremental import Version, _inf
-@@ -103,7 +104,7 @@ class VersionsTests(TestCase):
+@@ -128,7 +129,7 @@ class VersionsTests(TestCase):
          Passing 'prerelease' to Version is deprecated.
          """
          Version("whatever", 1, 0, 0, prerelease=1)
@@ -36,7 +36,7 @@ index 72223f0..2524d25 100644
          self.assertEqual(len(warnings), 1)
          self.assertEqual(
              warnings[0]["message"],
-@@ -119,7 +120,7 @@ class VersionsTests(TestCase):
+@@ -142,7 +143,7 @@ class VersionsTests(TestCase):
          """
          va = Version("whatever", 1, 0, 0, release_candidate=1)
          va.prerelease
