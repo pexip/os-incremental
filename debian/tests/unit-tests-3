@@ -1,4 +1,6 @@
 #!/bin/sh -e
 
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+
 cd $AUTOPKGTEST_TMP
 trial3 incremental

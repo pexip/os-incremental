@@ -1,10 +1,18 @@
 [run]
-source =
-       incremental
+# List of package names.
+source_pkgs = incremental
+# List of directory names.
+source = tests
 branch = True
+parallel = True
 
 [paths]
 source =
-   src/
-   .tox/*/lib/python*/site-packages/
-   .tox/pypy*/site-packages/
+   src/incremental
+   */src/incremental
+   */site-packages/incremental
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if TYPE_CHECKING:

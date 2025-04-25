@@ -10,5 +10,8 @@ export PYBUILD_AFTER_TEST=rm -rf {build_dir}/incremental.tests.*
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
 
+# See discussion in https://bugs.debian.org/965041.
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+
 %:
 	dh $@ --buildsystem=pybuild

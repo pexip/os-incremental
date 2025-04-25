@@ -1,0 +1,42 @@
+From 16001dabdb335084b86f3ac8db3f166121d56ec9 Mon Sep 17 00:00:00 2001
+From: Tom Most <twm@freecog.net>
+Date: Mon, 2 Dec 2024 23:26:11 -0800
+Subject: replace pkg_resources with packaging
+
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -29,7 +29,7 @@
+ description = "A small library that versions your Python projects."
+ readme = "README.rst"
+ dependencies = [
+-    "setuptools >= 61.0",
++    "packaging >= 17.0",
+     "tomli; python_version < '3.11'",
+ ]
+ 
+--- a/src/incremental/update.py
++++ b/src/incremental/update.py
+@@ -79,10 +79,10 @@
+ 
+     versionpath = os.path.join(path, "_version.py")
+     if newversion:
+-        from pkg_resources import parse_version
++        from packaging.version import Version as parse_version
+ 
+         existing = _existing_version(versionpath)
+-        st_version = parse_version(newversion)._version  # type: ignore[attr-defined]
++        st_version = parse_version(newversion)
+ 
+         release = list(st_version.release)
+ 
+@@ -101,8 +101,8 @@
+             minor,
+             micro,
+             release_candidate=st_version.pre[1] if st_version.pre else None,
+-            post=st_version.post[1] if st_version.post else None,
+-            dev=st_version.dev[1] if st_version.dev else None,
++            post=st_version.post,
++            dev=st_version.dev,
+         )
+ 
+     elif create:
